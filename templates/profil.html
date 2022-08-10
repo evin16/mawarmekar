@@ -1,0 +1,46 @@
+<html lang="id">
+
+{% extends "template.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row d-flex flex-wrap">
+        <div class="col-sm py-5 text-justify">
+            <h1 class="text-dark">Sejarah Desa</h1>
+            <small class=""><br></small>
+            Wilayah Desa Mawar Mekar merupakan desa yang terbentuk dari pemekaran Desa Bunga Mawar Kecamatan Pulau
+            Petak, Kabupaten Kapuas. Pada tanggal 05 Desember 2008 telah diselenggarakan rapat pembentukan panitia
+            pemekaran Desa Mawar Mekar yang diketuai <b>Zainal Muttaqin, S.Pd.</b>
+            Pada tahun 2010, Pemekaran Desa Mawar Mekar disetujui yang terdiri dari Handel Melati, Handel Jamzaman,
+            Handel Mawar, dan Handel Belah Sungai Tabulin. <br><br>
+            Kata <b>'Mawar"</b> diambil dari salah satu nama handel di Desa Mawar Mekar yaitu Handel Mawar, sedangkan
+            kata <b>"Mekar"</b> memiliki arti yakni berkembang, mandiri, dan indah sesuai harapan masyarakat Desa Mawar
+            Mekar.
+            <br><br>
+            Hingga saat ini, Desa Mawar Mekar memiliki organisasi pemerintahan meliputi Kepala Desa dan Perangkat Desa
+            (berjumlah <b>6</b> orang), BPD (berjumlah <b>9</b> orang), Ketua RT (berjumlah <b>9</b> orang), dan Kepala
+            Handel (berjumlah <b></b>
+            orang).
+            </small>
+        </div>
+        <div class="col-sm py-5">
+            <div id="map" style="width: 100%; height: 100%"></div>
+            <script>
+                const map = L.map('map')
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+                map.setView([-2.90, 114.47], 13);
+                let KantorDesa = L.marker([-2.9050031229157, 114.47301581122478]).addTo(map);
+                KantorDesa.bindPopup("Kantor Desa Mawar Mekar").openPopup();
+            </script>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}
+
+
+</html>

@@ -1,54 +1,113 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Prediksi Hasil Panen Padi</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Pacifico"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Arimo"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Hind:300"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-    />
-  </head>
+<html lang="id">
 
-  <body>
-    <div class="login">
-      <h1>Prediksi Hasil Panen Padi Desa Mawar Mekar</h1>
-      <h3>Silahkan Input Jumlah Luas Tanam (Ha)</h3>
+{% extends "template.html" %}
 
-      <!-- Main Input For Receiving Query to our ML -->
-      <form action="{{ url_for('predict')}}" method="post">
-        <input
-          type="text"
-          name="luasTanam(Ha)"
-          placeholder="Luas Tanam"
-          required="required"
-        />
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+{% endblock %}
 
-        <button type="submit" class="btn">Predict</button>
-      </form>
 
-      <br />
-      <br />
-      {{ prediction_text }}
+{% block content %}
+<header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">Desa Mawar Mekar</h1>
+        <p class="lead mb-0">Kabupaten Kapuas, Provinsi Kalimantan Tengah</p>
+      </div>
     </div>
-  </body>
+  </div>
+</header>
+
+<!-- Program Kerja Desa -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="col text-center p-5">
+      <h3>Program Kerja Pemerintahan Desa Mawar Mekar</h3>
+    </div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper h-50">
+        <div class="swiper-slide">
+          <div class="card mx-5 p-5 round-25">
+            <div class="content text-center">
+              <div class="img py-5">
+                <i class="fa fa-child fa-5x"></i>
+              </div>
+              <div class="detail">
+                <p>Penanganan Stunting di Desa Mawar Mekar</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card mx-5 p-5 round-25">
+            <div class="content text-center">
+              <div class="img py-5">
+                <i class="fa fa-cutlery fa-5x"></i>
+              </div>
+              <div class="detail">
+                <p>Ketahanan Pangan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card mx-5 p-5 round-25">
+            <div class="content text-center">
+              <div class="img py-5">
+                <i class="fa fa-tint fa-5x"></i>
+              </div>
+              <div class="detail">
+                <p>Penanganan Sarana Air Bersih</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card mx-5 p-5 round-25">
+            <div class="content text-center">
+              <div class="img py-5">
+                <i class="fa fa-medkit fa-5x"></i>
+              </div>
+              <div class="detail">
+                <p>Penanganan dan Pengendalian Covid-19</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card mx-5 p-5 round-25">
+            <div class="content text-center">
+              <div class="img py-5">
+                <i class="fa fa-money fa-5x"></i>
+              </div>
+              <div class="detail">
+                <p>Pemulihan Ekonomi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+          dynamicBullets: true,
+        },
+      });
+    </script>
+  </div>
+</div>
+
+{% endblock %}
+
+
 </html>

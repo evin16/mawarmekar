@@ -9,25 +9,46 @@ import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
 
-#Create flask app
+# Create flask app
 
 app = Flask(__name__)
+app.debug = True
 
-#Load the pickle model
-model = pickle.load(open("regression.pkl", "rb")) 
+# Load the pickle model
+model = pickle.load(open("regression.pkl", "rb"))
+
 
 @app.route("/")
 def Home():
     return render_template("index.html")
 
+@app.route("/pertanian")
+def panen():
+    return render_template("pertanian.html")
 
-@app.route('/predict',methods=['POST'])
+@app.route("/database")
+def database():
+    return render_template("pertanian/database.html")
+
+@app.route("/data")
+def data():
+    return render_template("data.html")
+
+@app.route("/profil")
+def profil():
+    return render_template("profil.html")
+
+@app.route("/page")
+def page():
+    return render_template("404.html")
+
+@app.route('/predict', methods=['POST'])
 def predict():
     int_features = [float(x) for x in request.form.values()]
     features = [np.array(int_features)]
     prediction = model.predict(features)
-    output = round(prediction[0], 2) 
-    return render_template('index.html', prediction_text='Prediksi Total Produksi Padi : {} Ton'.format(output))
+    output = round(prediction[0], 2)
+    return render_template('pertanian/database.html', prediction_text='Prediksi Total Produksi Padi : {} Ton'.format(output))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

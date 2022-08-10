@@ -1,0 +1,194 @@
+<html lang="id">
+
+{% extends "template.html" %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+<div>
+  <div class="container ">
+    <div class="row d-flex m-5">
+      <div class="col-sm mb-5">
+        <h4 class="text-center">Klasifikasi Penduduk Desa Mawar Mekar</h4>
+        <div>
+          <canvas id="JenisKelamin"></canvas>
+        </div>
+      </div>
+      <div class="col-sm">
+        <h4 class="text-center">Klasifikasi Pekerjaan Warga Desa Mawar Mekar</h4>
+        <div>
+          <canvas id="Pekerjaan"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex m-5">
+      <div class="col-sm mb-5">
+        <h4 class="text-center">Klasifikasi Pendidikan Penduduk Desa Mawar Mekar</h4>
+        <div>
+          <canvas id="Pendidikan"></canvas>
+        </div>
+      </div>
+      <div class="col-sm">
+        <h4 class="text-center">Klasifikasi Agama Warga Desa Mawar Mekar</h4>
+        <div>
+          <canvas id="Agama"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JenisKelamin -->
+<script>
+  const labels_JK = [
+    'Perempuan',
+    'Laki-laki',
+  ];
+  const data_JK = {
+    labels: labels_JK,
+    datasets: [{
+      label: 'Jumlah',
+      backgroundColor: [
+        'rgb(255, 99, 132, 0.7)',
+        'rgb(54, 162, 235, 0.7)'
+      ],
+      data: [581, 631],
+    }]
+  };
+  const pie = {
+    type: 'pie',
+    data: data_JK,
+  };
+</script>
+
+<!-- Pekerjaan -->
+<script>
+  const labels = [
+    'Petani',
+    'Pedagang',
+    'Karyawan',
+    'Swasta',
+    'PNS',
+    'TNI',
+    'Polri',
+    'Pelajar',
+    'Tidak Bekerja',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Jumlah',
+      backgroundColor: [
+        'rgb(0, 128, 225)',
+        'rgb(255, 255, 99)',
+        'rgb(255, 255, 132)',
+        'rgb(255, 99, 255)',
+        'rgb(255, 99, 99)',
+        'rgb(255, 99, 132)',
+        'rgb(255, 132, 255)',
+        'rgb(255, 132, 99)',
+        'rgb(255, 132, 132)',
+      ],
+      data: [543, 90, 80, 125, 30, 1, 1, 246, 96],
+    }]
+  };
+
+  const config = {
+    type: 'pie',
+    data: data,
+  };
+</script>
+
+<!-- Pendidikan -->
+<script>
+  const labels_Pendidikan = [
+    'TK/PAUD',
+    'SD/MI',
+    'SLTP/SMP',
+    'SLTA',
+    'DI/DII',
+    'DIII',
+    'S1',
+    'S2',
+  ];
+
+  const data_Pendidikan = {
+    labels: labels_Pendidikan,
+    datasets: [{
+      label: 'Jumlah',
+      backgroundColor: [
+        'rgb(0, 128, 225)',
+        'rgb(255, 255, 99)',
+        'rgb(255, 255, 132)',
+        'rgb(255, 99, 255)',
+        'rgb(255, 99, 99)',
+        'rgb(255, 99, 132)',
+        'rgb(255, 132, 255)',
+        'rgb(255, 132, 99)',
+        'rgb(255, 132, 132)',
+      ],
+      data: [25, 50, 40, 80, 5, 3, 40, 3],
+    }]
+  };
+
+  const pendidikan = {
+    type: 'pie',
+    data: data_Pendidikan,
+  };
+</script>
+
+<!-- Agama -->
+<script>
+  const labels_Agama = [
+    'Islam',
+    'Kristen',
+  ];
+
+  const data_Agama = {
+    labels: labels_Agama,
+    datasets: [{
+      label: 'Jumlah',
+      backgroundColor: [
+        'rgb(0, 128, 225)',
+        'rgb(255, 255, 99)',
+      ],
+      data: [1205, 7],
+    }]
+  };
+
+  const agama = {
+    type: 'pie',
+    data: data_Agama,
+  };
+</script>
+
+
+<!-- Peta -->
+<script>
+  const Pekerjaan = new Chart(
+    document.getElementById('Pekerjaan'),
+    config
+  );
+  const JenisKelamin = new Chart(
+    document.getElementById('JenisKelamin'),
+    pie
+  );
+
+  const Pendidikan = new Chart(
+    document.getElementById('Pendidikan'),
+    pendidikan
+  );
+
+  const Agama = new Chart(
+    document.getElementById('Agama'),
+    agama
+  );
+</script>
+{% endblock %}
+
+
+</html>

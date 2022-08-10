@@ -1,0 +1,22 @@
+<html>
+
+{% extends "template.html" %}
+
+{% block content %}
+  <div class="container">
+    <div class="col text-center p-5">
+      <h1 class='my-3'>Prediksi Hasil Panen Padi Desa Mawar Mekar</h1>
+      <h3 class="my-3">Silahkan Input Jumlah Luas Tanam (Ha)</h3>
+
+      <form action="{{ url_for('predict')}}" method="post">
+        <div class="row justify-content-center">
+          <input class="w-25" type="text" name="luasTanam(Ha)" placeholder="Luas Tanam" required="required" />
+        </div>
+        <button type="submit" class="btn btn-primary w-25 py-3 mt-3">Predict</button>
+      </form>
+      <br>
+      {{ prediction_text }}
+    </div>
+{% endblock %}
+
+</html>
