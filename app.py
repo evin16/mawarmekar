@@ -15,8 +15,7 @@ app = Flask(__name__)
 app.debug = True
 
 # Load the pickle model
-model = pickle.load(open("regression.pkl", "rb"))
-
+model = pickle.load(open("model.pkl", "rb"))
 
 @app.route("/")
 def Home():
@@ -26,9 +25,21 @@ def Home():
 def panen():
     return render_template("pertanian.html")
 
+@app.route("/pendidikan")
+def sekolah():
+    return render_template("pendidikan.html")
+
 @app.route("/database")
 def database():
     return render_template("pertanian/database.html")
+
+@app.route("/rumahbibit")
+def rumahbibit():
+    return render_template("pertanian/rumahbibit.html")   
+
+@app.route("/mikroEfektif")
+def mikroEfektif():
+    return render_template("pertanian/mikroEfektif.html")   
 
 @app.route("/data")
 def data():

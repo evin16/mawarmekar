@@ -4,6 +4,19 @@
   font-family: "Inter", sans-serif;
 }
 
-.round-25{
-  border-radius: 25px;
+.round{
+  border-radius: 15px;
+}
+
+* a{
+  text-decoration: none;
+}
+
+.bg-mint{
+  background-color: #B4F8C8;
+}
+
+.bg-cover{
+  background-repeat: no-repeat;
+  background-size: cover;
 }

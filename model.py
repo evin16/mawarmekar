@@ -8,13 +8,13 @@ Created on Tue Aug  2 21:33:39 2022
 #Import library
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
+from sklearn.neighbors import KNeighborsRegressor as KNN_Reg
 import pickle
 
 #Load dataset
-df = pd.read_excel('dataset.xlsx')
+df = pd.read_csv('sample.csv')
 
-print(df)
+#print(df)
 
 #variabel independen
 X=df['luasPanen(Ha)'].values.reshape(-1,1)
@@ -25,18 +25,18 @@ y=df['produksi(Ton)']
 X_train , X_test, y_train, y_test = train_test_split(X,y, test_size = 0.3, random_state = 15)
 
 #Model
-lr = LinearRegression()
+model = KNN_Reg(n_neighbors = 3)
 
 #Fit the model
-lr.fit(X_train,y_train)
+model.fit(X_train,y_train)
 
 #Evaluation Model
-score = lr.score(X_train, y_train)  
+score = model.score(X_train, y_train)  
 print("Training score: %.2f " % score)
 
 #Pickle file for model
-pickle.dump(lr, open('regression.pkl','wb'))
+pickle.dump(model, open('model.pkl','wb'))
 
-model = pickle.load(open("regression.pkl", "rb")) 
+model = pickle.load(open("model.pkl", "rb")) 
 
 

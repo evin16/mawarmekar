@@ -1,0 +1,149 @@
+<html lang="id">
+
+{% extends "template.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pendidikan.css') }}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<!-- Program Kerja Desa -->
+<div class="jumbotron mb-3">
+    <div class="container">
+        <div class="col text-center p-5">
+            <h3>Lembaga Pendidikan Desa Mawar Mekar</h3>
+        </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="max-height: 250px">
+                    <div class="card mx-5 p-3 round-25">
+                        <div class="content text-center">
+                            <div class="detail">
+                                <h4 class="my-3">PAUD TK KB Melati</h4>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="" style="max-width: 500px;">
+                                        <img src="{{ url_for('static',filename='img/school/PAUD.png')}}" alt=""
+                                            class="round-25 w-100">
+                                    </div>
+                                </div>
+                                <div class="col p-3 align-items-center">
+                                    <button class="btn btn-success" style="min-width: 200px;" disabled>Kontak</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="max-height: 250px">
+                    <div class="card mx-5 p-3 round-25">
+                        <div class="content text-center">
+                            <div class="detail">
+                                <h4 class="my-3">PAUD Al-Mustajabah</h4>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="" style="max-width: 500px;">
+                                        <img src="{{ url_for('static',filename='img/school/PAUD.png')}}" alt=""
+                                            class="round-25 w-100">
+                                    </div>
+                                </div>
+                                <div class="col p-3 align-items-center">
+                                    <button class="btn btn-success" style="min-width: 200px;" disabled>Kontak</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card mx-5 p-3 round-25">
+                        <div class="content text-center">
+                            <div class="detail">
+                                <h4 class="my-3">MI Al-Mustajabah</h4>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="" style="max-width: 500px;">
+                                        <img src="{{ url_for('static',filename='img/school/PAUD.png')}}" alt=""
+                                            class="round-25 w-100">
+                                    </div>
+                                </div>
+                                <div class="col p-3 align-items-center">
+                                    <button class="btn btn-success" style="min-width: 200px;" disabled>Kontak</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card mx-5 p-3 round-25">
+                        <div class="content text-center">
+                            <div class="detail">
+                                <h4 class="my-3">SDN 1 Mawar Mekar</h4>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="" style="max-width: 500px;">
+                                        <img src="{{ url_for('static',filename='img/school/PAUD.png')}}" alt=""
+                                            class="round-25 w-100">
+                                    </div>
+                                </div>
+                                <div class="col p-3 align-items-center">
+                                    <button class="btn btn-success" style="min-width: 200px;" disabled>Kontak</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card mx-5 p-3 round-25">
+                        <div class="content text-center">
+                            <div class="detail">
+                                <h4 class="my-3">MTs Al-Mustajabah</h4>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="" style="max-width: 500px;">
+                                        <img src="{{ url_for('static',filename='img/school/PAUD.png')}}" alt=""
+                                            class="round-25 w-100">
+                                    </div>
+                                </div>
+                                <div class="col p-3 align-items-center">
+                                    <button class="btn btn-success" style="min-width: 200px;" disabled>Kontak</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card mx-5 p-3 round-25">
+                        <div class="content text-center">
+                            <div class="detail">
+                                <h4 class="my-3">SMAN 1 Pulau Petak</h4>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="" style="max-width: 500px;">
+                                        <img src="{{ url_for('static',filename='img/school/PAUD.png')}}" alt=""
+                                            class="round-25 w-100">
+                                    </div>
+                                </div>
+                                <div class="col p-3 align-items-center">
+                                    <button class="btn btn-success" style="min-width: 200px;" disabled>Kontak</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination py-5"></div>
+        </div>
+
+
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    dynamicBullets: true,
+                },
+            });
+        </script>
+    </div>
+</div>
+
+{% endblock %}
+
+
+</html>

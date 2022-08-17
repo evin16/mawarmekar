@@ -2,21 +2,165 @@
 
 {% extends "template.html" %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/database.css') }}" />
+{% endblock %}
+
 {% block content %}
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="col text-center py-5">
+      <h1>Data Luas Lahan Komoditas Tanaman (Ha)</h1>
+      <h3>Desa Mawar Mekar</h3>
+      <div class="col">
+        <canvas id="HasilTani" style="max-height: 250px;"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron bg-mint p-3">
   <div class="container">
     <div class="col text-center p-5">
-      <h1 class='my-3'>Prediksi Hasil Panen Padi Desa Mawar Mekar</h1>
-      <h3 class="my-3">Silahkan Input Jumlah Luas Tanam (Ha)</h3>
+      <h1>Potensi Komoditas Pertanian Desa Mawar Mekar</h1>
+    </div>
+    <div class="col-sm">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper h-50">
+          <div class="swiper-slide">
+            <div class="card py-5 round-25 bg-cover" id="galam">
+              <div class="content text-center text-white">
+                <div class="col py-5">
+                  <h1>Kuat, Kokoh, Tahan Rayap dan Air</h1>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer bg-dark text-center text-white">
+              <h3 class="p-3">Kayu Galam</h3>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card p-5 round-25 bg-cover" id="rambutan">
+              <div class="content text-center text-white">
+                <div class="col py-5">
+                  <h1>‘Si Manis’ yang Kaya Antioksidan</h1>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer bg-dark text-center text-white">
+              <h3 class="p-3">Rambutan</h3>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card p-5 round-25 bg-cover" id="kuini">
+              <div class="content text-center text-white">
+                <div class="col py-5">
+                  <h1>Kembaran 'Mangga' Berserat Tinggi</h1>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer bg-dark text-center text-white">
+              <h3 class="p-3">Kuini</h3>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card p-5 round-25 bg-cover" id="karet">
+              <div class="content text-center text-white">
+                <div class="col py-5">
+                  <h1>Getah Penghasil Produk Elastis</h1>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer bg-dark text-center text-white">
+              <h3 class="p-3">Karet</h3>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card p-5 round-25 bg-cover" id="petai">
+              <div class="content text-center text-white">
+                <div class="col py-5">
+                  <h1>Sayuran Berbiji Beraroma Khas</h1>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer bg-dark text-center text-white">
+              <h3 class="p-3">Petai</h3>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron p-3">
+  <div class="container">
+    <div class="col text-center">
+      <h1 class='my-3 py-3'>Prediksi Hasil Panen Padi Desa Mawar Mekar</h1>
+      <h6 class="py-3">Silahkan Input Jumlah Luas Tanam (Ha)</h3>
 
       <form action="{{ url_for('predict')}}" method="post">
         <div class="row justify-content-center">
-          <input class="w-25" type="text" name="luasTanam(Ha)" placeholder="Luas Tanam" required="required" />
+          <input class="mx-5" type="text" name="luasTanam(Ha)" placeholder="Luas Tanam" required="required" />
+          <button type="submit" class="btn btn-primary py-3 mt-3">Predict</button>
         </div>
-        <button type="submit" class="btn btn-primary w-25 py-3 mt-3">Predict</button>
       </form>
       <br>
       {{ prediction_text }}
     </div>
+  </div>
+
+</div>
+
+
+</div>
+
+<!-- HasilTani -->
+<script>
+  const label = [
+    'Padi Sawah',
+    'Rambutan',
+  ];
+  const data = {
+    labels: label,
+    datasets: [{
+      label: 'Jumlah',
+      backgroundColor: [
+        'rgb(255, 99, 132, 0.7)',
+        'rgb(54, 162, 235, 0.7)'
+      ],
+      data: [197, 20],
+    }]
+  };
+  const hasilTani = {
+    type: 'pie',
+    data: data,
+  }
+</script>
+
+<script>
+  const HasilTani = new Chart(
+    document.getElementById('HasilTani'),
+    hasilTani
+  );
+</script>
+
+
+
+<!-- Swipe -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+  });
+</script>
+
+
 {% endblock %}
 
 </html>
