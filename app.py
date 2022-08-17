@@ -29,6 +29,10 @@ def panen():
 def sekolah():
     return render_template("pendidikan.html")
 
+@app.route("/umkm")
+def umkm():
+    return render_template("umkm.html")
+
 @app.route("/database")
 def database():
     return render_template("pertanian/database.html")
@@ -40,6 +44,10 @@ def rumahbibit():
 @app.route("/mikroEfektif")
 def mikroEfektif():
     return render_template("pertanian/mikroEfektif.html")   
+
+@app.route("/rambutan")
+def rambutan():
+    return render_template("pertanian/rambutan.html")   
 
 @app.route("/data")
 def data():
