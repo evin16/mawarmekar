@@ -47,7 +47,11 @@ def mikroEfektif():
 
 @app.route("/rambutan")
 def rambutan():
-    return render_template("pertanian/rambutan.html")   
+    return render_template("pertanian/rambutan.html")  
+
+@app.route("/budidaya")
+def budidaya():
+    return render_template("pertanian/budidaya.html")  
 
 @app.route("/data")
 def data():
